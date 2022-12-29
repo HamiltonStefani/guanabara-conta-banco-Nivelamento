@@ -1,0 +1,139 @@
+
+DIAGRAMA UML
+_______________
+ContaBanco      → NOME DA CLASSE
+_______________
++ numConta
+# tipo
+- dono          → ATRIBUTOS
+- saldo
+- status
+_______________
++ abrirConta()
++ fecharConta()
++ depositar()        → METODOS COM SEUS setters E getters
++ sacar()
++ pagarMensalidade()
+_________________
+
+Classe ContaBanco
+// Atributos
+
+publico numConta: Inteiro
+protegido tipo: caractere
+privado dono: caractere
+privado saldo: real
+privado status: logico
+
+
+//Métodos
+
+publico Metodo abrirConta(t:Caractere)
+  setTipo(t)
+  setStatus(verdadeiro)
+  se (t = "CC") então
+   saldo = 50
+   senão se (t = "CP") entao
+   saldo = 150
+ FimSe
+FimMetodo
+
+
+publico Metodo fecharConta()
+se (saldo > 0) entao
+   ESCREVA("Conta com dinheiro")
+senao se (saldo < 0) entao
+   ESCREVA("Conta em débito")
+senão
+   setStatus(false)
+fimSe  
+FimMetodo
+
+
+publico Metodo depositar(v: Real)
+  se (status = verdadeiro) entao
+     setSaldo(getSaldo() + v)
+    senao
+     Escreva("Impossivel Depositar")
+  FimSe
+FimMetodo
+
+
+publico Metodo sacar(v: Real)
+se (getStatus() = verdadeiro)
+  se (saldo > v) entao
+  saldo = saldo - v
+senao
+  ESCREVA ("Saldo Insuficiente")
+FimSe  
+  
+FimMetodo
+
+
+publico Metodo pagarMensal()
+var v: Reala
+se (tipo = "CC") entao
+ v = 12
+senao se (tipo = "CP") entao
+  v = 20
+FimSe
+se (status = verdadeiro) entao
+ se (saldo > v) entao
+    saldo =saldo - v
+senão
+  ESCREVA ("Saldo Insuficiente")
+FimSe
+senao
+  Escreva("Impossivel Pagar")
+FimSe
+
+FimMetodo
+
+//Métodos Especiais
+
+publico Metodo Construtor()
+  saldo = 0
+  status = falso
+FimMetodo
+
+
+publico Metodo setNumConta(n: inteiro)
+  numConta = n
+FimMetodo
+publico Metodo getNumConta()
+  retorne numConta
+FimMetodo
+
+publico Metodo setTipo(t:Caractere)
+  tipo = t
+FimMetodo
+publico Metodo getTipo()
+  retorne tipo
+FimMetodo
+
+publico Metodo setDono(d: Caractere)
+  dono = d
+FimMetodo
+publico Metodo getDono()
+  retorne dono
+FimMetodo
+
+publico Metodo setSaldo(s: Real)
+  saldo = s
+FimMetodo
+publico Metodo getSaldo()
+  retorne saldo
+FimMetodo
+
+publico Metodo setStatus(s: logico)
+  status = s
+FimMetodo
+publico Metodo getStatus()
+  retorne status
+FimMetodo
+
+
+
+
+
+FimClasse
